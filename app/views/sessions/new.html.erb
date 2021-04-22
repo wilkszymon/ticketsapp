@@ -1,4 +1,4 @@
-<h1>Log in for Company</h1>
+<h1 class="title">Log in for Company</h1>
 
 <% flash.each do |type, msg| %>
   <div>
@@ -21,5 +21,6 @@
     <br>
 
     <%= f.submit 'Log in', class: "button" %>
+    or <%= link_to "Sign up", signup_path, class: "button_signup" %>
     <% end %>
 </section>

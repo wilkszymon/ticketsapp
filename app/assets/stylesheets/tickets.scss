@@ -1,0 +1,109 @@
+// Place all the styles related to the tickets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    font-family: 'Roboto', sans-serif;
+}
+
+.navigation{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: #ddd;
+    opacity: .9;
+    .logo{
+        letter-spacing: 2px;
+    }
+}
+
+.nav{
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+    li{
+        list-style: none;
+    }
+    .elem{
+        position: relative;
+        color: black;
+        letter-spacing: 2px;
+        font-size: 14px;
+        text-decoration: none;
+        padding-bottom: 7px;
+        background-color: transparent;
+        &::before{
+            position: absolute;
+            content: '';
+            height: 2px;
+            width: 0%;
+            transform: translate(-50%, -50%);
+            background-color: black;
+            bottom: 0;
+            left: 50%;
+            transition: .5s;
+        }
+        &:hover::before {
+            width: 150%;
+        }
+    }
+}
+
+
+.content-table{
+    border-collapse: collapse;
+    margin: 25px auto;
+    font-size: 14px;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,.15);
+    thead tr{
+        background-color: #009879;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+    }
+    th, td{
+        padding: 12px 15px ;
+    }
+    tbody {
+        td{
+            text-align: center;
+        }
+        tr{
+        border-bottom: 1px solid black;
+        }
+        tr:nth-of-type(even){
+            background-color: #f3f3f3;
+        }
+        tr:last-of-type{
+            border-bottom: 2px solid #009879;
+        }
+        .important_ticket{
+            background-color: red;
+        }
+    }
+}
+
+
+
+.centerCart{
+    text-align: center;
+}
+
+.flash_notice{
+    width: 40%;
+    margin: 10px auto 0 auto;
+    text-align: center;
+    padding: 7px 12px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    background-color: #d4edda;
+}

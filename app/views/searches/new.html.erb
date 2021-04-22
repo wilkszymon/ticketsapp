@@ -1,0 +1,30 @@
+<%= render partial: 'shared/errors', locals: {obj: @search} %>
+
+<section class="wrapper skinny-wrapper">
+    <%= form_with model: @search do |f| %>
+
+    <%= f.label :name %><br>
+    <%= f.text_field :name, requrie: true, placeholder: "Name:" %>
+
+    <br>
+
+    <%= f.label :description %><br>
+    <%= f.text_field :description, requrie: true,placeholder: "Description:" %>
+
+    <br>
+  
+    <%= f.label :important %><br>
+    <%= f.check_box :important %>
+    
+    <br>
+
+    <%= f.label :city %><br>
+    <%= f.text_field :city,placeholder: "City:" %>
+    
+    <br>
+
+    <%= f.submit 'Search', class: "button" %>
+    <% end %>
+</section>
+
+<%= link_to "Back", tickets_path %>
