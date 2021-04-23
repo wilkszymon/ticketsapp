@@ -1,5 +1,9 @@
 <%= render partial: 'shared/errors', locals: {obj: @search} %>
 
+ <section class="title">
+     <h2>Advanced Search</h2>
+   </section>
+
 <section class="wrapper skinny-wrapper">
     <%= form_with model: @search do |f| %>
 
@@ -9,12 +13,12 @@
     <br>
 
     <%= f.label :description %><br>
-    <%= f.text_field :description, requrie: true,placeholder: "Description:" %>
+    <%= f.text_field :description, placeholder: "Description:" %>
 
     <br>
   
     <%= f.label :important %><br>
-    <%= f.check_box :important %>
+    <%= f.text_field :important, placeholder: "True or False:" %>
     
     <br>
 
@@ -27,4 +31,4 @@
     <% end %>
 </section>
 
-<%= link_to "Back", tickets_path %>
+<%= link_to "Back to tickets", tickets_path, class: "toTickets" %>

@@ -22,16 +22,18 @@
 
 <table class="content-table">
     <thead>
-        <th><%= link_to "Add new ticket", new_ticket_path %></th>
+    <tr>
+        <th><%= link_to "Add new ticket", new_ticket_path, class: "btnTicket" %></th>
         <th></th>
-        <th>Search a ticket: </th>
+        <th style="color: black;">Search a ticket: </th>
         <th>
             <%= form_tag(tickets_path, method: :get) do %>
                 <%= text_field_tag(:search, params[:search]) %>
                 <%= submit_tag ("Search") %>  
             <%end%>    
         </th>
-        <th><%= link_to "Advanced Search", new_search_path %></th>
+        <th><%= link_to "Advanced Search", new_search_path, class: "btnTicket" %></th>
+    </tr>
     </thead>
     <thead class="">
         <tr>

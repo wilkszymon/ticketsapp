@@ -1,0 +1,43 @@
+<%= render partial: 'shared/nav' %>
+
+<% if @search.search_tickets.empty? %>
+
+   <section class="title">
+     <h2>No records found</h2>
+   </section>
+
+<%else%> 
+
+    <section class="title">
+     <h2>Results</h2>
+   </section>
+
+    <table class="content-table">
+    <thead class="">
+            <tr>
+                <th>ID ticket</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>City</th>
+                <th>Important</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @search.search_tickets.each do |search| %>
+            <tr>
+                <td><%= search.id %></td>
+                <td><%= search.name %></td>
+                <td><%= search.description %></td>
+                <td><%= search.city %></td>
+                <% if search.important %>
+                        <td class="important_ticket"> <%= search.important %> </td>
+                <%else%>
+                        <td> - </td>   
+                <%end%>
+            </tr>
+            <%end%>
+
+        </tbody>
+    </table>
+<%end%>
+<%= link_to "Back to tickets", tickets_path, class: "toTickets" %>

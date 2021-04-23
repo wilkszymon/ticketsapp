@@ -1,8 +1,9 @@
 <nav class="navigation">
     <div class="logo">
-        <h4>Company Name</h4>
+        <h4>Company</h4>
     </div>
     <ul class="nav">
-        <li><%= link_to "Home",  class: "elem" %></li>
+        <li><%= link_to "Home", tickets_path, class: "elem" %></li>
+        <li><%= link_to "Account - #{current_user.username}" , user_path(current_user.id), class: "elem" %></li>
     </ul>
 </nav>

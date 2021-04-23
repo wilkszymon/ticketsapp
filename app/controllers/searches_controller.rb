@@ -2,7 +2,7 @@ class SearchesController < ApplicationController
 
     def new 
         @search = Search.new
-        # @name = Book.uniq.pluck(:name)
+        # @descriptions = Ticket.uniq.pluck(:description)
     end
 
     def create
@@ -17,7 +17,7 @@ class SearchesController < ApplicationController
     private
 
     def search_params
-        params.require(:searche).permit(:name, :description, :important, :city)
+        params.require(:search).permit(:name, :description, :important, :city)
     end
 
 end
