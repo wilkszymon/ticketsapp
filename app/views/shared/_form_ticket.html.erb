@@ -1,11 +1,13 @@
-<%= render partial: 'shared/errors', locals: {obj: @ticket} %>
+
 
  <section class="title">
-     <h2>Update</h2>
+     <h2> <%= title %></h2>
    </section>
 
+<%= render partial: 'shared/errors', locals: {obj: object} %>
+
 <section class="wrapper skinny-wrapper">
-    <%= form_with model: @ticket do |f| %>
+    <%= form_for object do |f| %>
 
     <%= f.label :name %><br>
     <%= f.text_field :name, requrie: true, placeholder: "Name:" %>
@@ -27,14 +29,9 @@
     <%= f.check_box :important, placeholder: "True or False:" %>
 
     <br>
-
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id, placeholder: "Choose a user:" %>
-
-    <br>
     <br>
 
-    <%= f.submit "Update", class: "button" %>
+    <%= f.submit btn, class: "button" %>
     <% end %>
 </section>
 

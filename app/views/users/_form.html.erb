@@ -1,17 +1,22 @@
-<%= render partial: 'shared/errors', locals: {obj: @user} %>
+
+ <%= render partial: 'shared/errors', locals: {obj: @user} %> 
+
+
+
 <section class="wrapper skinny-wrapper">
-    <%= form_with model: @user do |f| %>
+    <%= form_for @user do |f| %>
 
     <%= f.label :username %><br>
-    <%= f.text_field :username, requrie: true, placeholder: "Username:" %>
+    <%= f.text_field :username, placeholder: "Username:" %>
 
     <br>
 
     <%= f.label :password %><br>
-    <%= f.password_field :password, requrie: true,placeholder: "Password:" %>
+    <%= f.password_field :password, placeholder: "Password:" %>
 
     <br>
 
     <%= f.submit btn, class: "button" %>
     <% end %>
 </section>
+

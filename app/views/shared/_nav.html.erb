@@ -4,6 +4,11 @@
     </div>
     <ul class="nav">
         <li><%= link_to "Home", tickets_path, class: "elem" %></li>
-        <li><%= link_to "Account - #{current_user.username}" , user_path(current_user.id), class: "elem" %></li>
+        <% if current_user.admin? %>
+            <li><%= link_to "Admin - #{current_user.username}" , user_path(current_user.id), class: "elem" %></li>
+            <%else%>
+            <li><%= link_to "Account - #{current_user.username}" , user_path(current_user.id), class: "elem" %></li>
+        <%end%>
+        <li><%= link_to "Log out", logout_path, method: :delete, class: "elem" %></li>
     </ul>
 </nav>

@@ -1,5 +1,7 @@
 class SearchesController < ApplicationController
 
+    before_action :require_user
+
     def new 
         @search = Search.new
         # @descriptions = Ticket.uniq.pluck(:description)

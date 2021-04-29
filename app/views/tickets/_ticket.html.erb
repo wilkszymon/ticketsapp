@@ -1,0 +1,57 @@
+<table class="content-table">
+    <thead>
+    <tr>
+        <th><%= link_to "Add new ticket", new_ticket_path, class: "btnTicket" %></th>
+        <th></th>
+        <th></th>
+        <th style="color: black;">Search a ticket: </th>
+        <th>
+            <%= form_tag(tickets_path, method: :get) do %>
+                <%= text_field_tag(:search, params[:search]) %>
+                <%= submit_tag ("Search") %>  
+            <%end%>    
+        </th>
+        <th><%= link_to "Advanced Search", new_search_path, class: "btnTicket" %></th>
+        <th></th>
+    </tr>
+    </thead>
+    <thead class="">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>City</th>
+            <th>User</th>
+            <th>Important</th>
+            <%if current_user.admin? %>
+                <th colspan = 2>Options</th>
+            <%else%>
+                <th>Options</th>
+                <th></th>
+            <%end%>
+        </tr>
+    </thead>
+    <tbody>
+        <% @tickets.each do |ticket| %>
+        <tr>
+            <td><%= ticket.name %></td>
+            <td><%= ticket.description %></td>
+            <td><%= ticket.city %></td>
+            <td><%= ticket.user_id %></td>
+            <% if ticket.important %>
+                    <td class="important_ticket"> <i class="fas fa-check"></i> </td>
+            <%else%>
+                    <td> - </td>   
+            <%end%>
+            <%if current_user.admin? %>
+                <td><%= link_to "Done", ticket_path(ticket), method: :delete %></td>
+                <td><%= link_to "Edit", ticket_path(ticket.id) %></td>
+            <%else%>
+                <td><%= link_to "Done", ticket_path(ticket), method: :delete %></td>
+                <td></td>
+            <%end%>
+            
+        </tr>
+        <%end%>
+
+    </tbody>
+</table>

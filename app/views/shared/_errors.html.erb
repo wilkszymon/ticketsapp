@@ -1,8 +1,10 @@
 <% if obj.errors.any? %>
-    <h4>Errors: </h4>
-    <ul>
-    <% obj.errors.full_messages.each do |msg| %>
-        <li>  <%= msg %> </li>
-    <%end%>
-    </ul> 
+    <div class="errors__box">
+        <h4>Errors: </h4>
+        <ul>
+        <% obj.errors.full_messages.each do |msg| %>
+            <li>  <%= msg %> </li>
+        <%end%>
+        </ul> 
+    </div>
 <%end%>
