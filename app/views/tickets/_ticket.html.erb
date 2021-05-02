@@ -11,23 +11,30 @@
                 <%= submit_tag ("Search") %>  
             <%end%>    
         </th>
-        <th><%= link_to "Advanced Search", new_search_path, class: "btnTicket" %></th>
-        <th></th>
+        
+        <%if current_user.admin? %>
+                <th colspan = 3><%= link_to "Advanced Search", new_search_path, class: "btnTicket" %></th>
+        <%else%>
+                <th><%= link_to "Advanced Search", new_search_path, class: "btnTicket" %></th>
+                <th></th>
+        <%end%>
     </tr>
     </thead>
-    <thead class="">
+    <thead>
         <tr>
             <th>Name</th>
             <th>Description</th>
             <th>City</th>
             <th>User</th>
             <th>Important</th>
+            <th>Status</th>
             <%if current_user.admin? %>
-                <th colspan = 2>Options</th>
+                <th colspan =2 >Options</th>
             <%else%>
                 <th>Options</th>
                 <th></th>
             <%end%>
+            
         </tr>
     </thead>
     <tbody>
@@ -36,20 +43,25 @@
             <td><%= ticket.name %></td>
             <td><%= ticket.description %></td>
             <td><%= ticket.city %></td>
-            <td><%= ticket.user_id %></td>
+            <% if ticket.user %>
+                    <td><%= ticket.user.username %></td>
+            <%else%>
+                    <td> -- </td>   
+            <%end%>
+            
             <% if ticket.important %>
                     <td class="important_ticket"> <i class="fas fa-check"></i> </td>
             <%else%>
-                    <td> - </td>   
+                    <td> -- </td>   
             <%end%>
+            <td><%= ticket.status.name %></td>
             <%if current_user.admin? %>
                 <td><%= link_to "Done", ticket_path(ticket), method: :delete %></td>
-                <td><%= link_to "Edit", ticket_path(ticket.id) %></td>
+                <td><%= link_to "Edit", edit_ticket_path(ticket.id) %></td>
             <%else%>
                 <td><%= link_to "Done", ticket_path(ticket), method: :delete %></td>
                 <td></td>
             <%end%>
-            
         </tr>
         <%end%>
 

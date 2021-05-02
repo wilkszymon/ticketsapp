@@ -1,0 +1,27 @@
+<%= render partial: 'shared/nav' %>
+
+<section class="title">
+     <h2>Users</h2>
+</section>
+
+<table class="content-table">
+    <thead class="">
+            <tr>
+                <th>ID User</th>
+                <th>Name</th>
+                <th colspan = 2>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @users.each do |user| %>
+            <tr>
+                <td><%= user.id %></td>
+                <td><%= user.username %></td>
+                <td><%= link_to "Delete", user_path(user), method: :delete %></td>
+                <td><%= link_to "Edit", edit_user_path(user.id) %></td>
+                
+            </tr>
+            <%end%>
+
+        </tbody>
+ </table>

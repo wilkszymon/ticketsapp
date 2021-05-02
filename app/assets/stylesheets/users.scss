@@ -1,3 +1,47 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.user__table{
+    width: 100vw;
+    .box{
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 25%;
+        h4
+        {
+            width: 100%;
+            text-align: center;
+            a{
+                
+                display: block;
+                margin: 20px 0;
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        }
+        .count__ticket{
+            width: 100%;
+            text-align: center;
+            margin: 10px ;
+        }
+        p{
+            width: 100%;
+            text-align: center;
+            margin: 20px 0;
+            a{
+                padding: 5px 10px;
+                border: 1px solid black;
+
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+            
+        }
+    }
+}

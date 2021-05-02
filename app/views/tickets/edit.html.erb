@@ -27,10 +27,15 @@
     <%= f.check_box :important, placeholder: "True or False:" %>
 
     <br>
-
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id, placeholder: "Choose a user:" %>
-
+    <br>
+    <%= f.label "Choose a user for ticket:" %><br>
+    <br>
+    <%= f.select :user_id, User.all.map{ |u| [u.username, u.id] } %>
+    <br>
+    <br>
+    <%= f.label "Status:" %><br>
+    <br>
+    <%= f.select :status_id, Status.all.map{|s| [s.name, s.id]}, prompt: "Status:" %>
     <br>
     <br>
 

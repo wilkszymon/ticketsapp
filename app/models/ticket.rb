@@ -1,5 +1,8 @@
 class Ticket < ApplicationRecord
 
+    belongs_to :user, optional: true
+    belongs_to :status
+
     validates :name,
                  presence: true, 
                  length: { in: 4..20 }

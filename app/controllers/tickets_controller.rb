@@ -9,6 +9,7 @@ class TicketsController < ApplicationController
   def create
     @ticket = Ticket.new(params_ticket)
     @ticket.user_id = nil
+    @ticket.status_id = 1
     if @ticket.save
       redirect_to tickets_path
     else
@@ -42,12 +43,12 @@ class TicketsController < ApplicationController
   def destroy
     @ticket = Ticket.find(params[:id])
     @ticket.destroy
-    flash[:notice] = "Usunieto"
+    flash[:notice] = "Deleted"
     redirect_to tickets_path
   end
 
   private
     def params_ticket
-      params.require(:ticket).permit(:name, :description, :important, :city, :user_id)
+      params.require(:ticket).permit(:name, :description, :important, :city, :user_id, :status_id)
     end
 end
