@@ -13,26 +13,46 @@
    </section>
 
     <table class="content-table">
-    <thead class="">
+    <thead >
             <tr>
-                <th>ID ticket</th>
                 <th>Name</th>
                 <th>Description</th>
                 <th>City</th>
+                <th>User</th>
                 <th>Important</th>
+                <th>Status</th>
+                <%if current_user.admin? %>
+                    <th colspan =2 >Options</th>
+                <%else%>
+                    <th>Options</th>
+                    <th></th>
+                <%end%>
             </tr>
         </thead>
         <tbody>
             <% @search.search_tickets.each do |search| %>
             <tr>
-                <td><%= search.id %></td>
                 <td><%= search.name %></td>
                 <td><%= search.description %></td>
                 <td><%= search.city %></td>
-                <% if search.important %>
-                        <td class="important_ticket"> <%= search.important %> </td>
+                 <% if search.user %>
+                    <td><%= search.user.username %></td>
                 <%else%>
-                        <td> - </td>   
+                        <td> -- </td>   
+                <%end%>
+                
+                <% if search.important %>
+                        <td class="important_ticket"> <i class="fas fa-check"></i> </td>
+                <%else%>
+                        <td> -- </td>   
+                <%end%>
+                <td><%= search.status.name %></td>
+                <%if current_user.admin? %>
+                    <td><%= link_to "Done", ticket_path(search), method: :delete %></td>
+                    <td><%= link_to "Edit", edit_ticket_path(search.id) %></td>
+                <%else%>
+                    <td><%= link_to "Done", ticket_path(search), method: :delete %></td>
+                    <td></td>
                 <%end%>
             </tr>
             <%end%>

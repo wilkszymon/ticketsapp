@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
-    
+    before_action :set_user, only: [:show, :edit, :update, :destroy]
+    before_action :require_user  
+
+
 def new
     @user = User.new
 end
@@ -21,16 +24,13 @@ end
 
 def show
     @users = User.all
-    @user = User.find(params[:id])
     @tickets = @user.tickets
 end
 
 def edit
-    @user = User.find(params[:id])
 end
 
 def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
         flash[:notice] = "Update a user"
         redirect_to @user
@@ -40,7 +40,6 @@ def update
 end
 
 def destroy
-    @user = User.find(params[:id])
     @user.destroy
     redirect_to @user
 end
@@ -48,5 +47,9 @@ end
 private
     def user_params
         params.require(:user).permit(:username, :password)
+    end
+
+    def set_user
+        @user = User.find(params[:id])
     end
 end
