@@ -7,9 +7,11 @@ In app we have two users, first is an admin user, you can add a new user in "Sig
 In app we have a specjal status to give a info a user, what's exacly going on with a claim. We can add a priority to claim. In the headline we have a search bar and "Advanced options". 
 
 If you want login like Admin:
+
 username: testadmin
 password: 12345
 
 or like normal user:
+
 username: test
 password: 12345
