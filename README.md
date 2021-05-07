@@ -9,9 +9,11 @@ In app we have a specjal status to give a info a user, what's exacly going on wi
 If you want login like Admin:
 
 username: testadmin
+
 password: 12345
 
 or like normal user:
 
 username: test
+
 password: 12345
